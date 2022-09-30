@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -18,3 +19,7 @@ async def root(request: Request):
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", reload=True)
